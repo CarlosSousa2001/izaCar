@@ -1,9 +1,7 @@
-package com.api.izacar.models;
+package com.api.izacar.models.marca;
 
 import jakarta.persistence.*;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
@@ -13,22 +11,22 @@ public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_marca")
-    private int id;
+    private Integer id;
     @Column(nullable = false, length = 75)
     private String nome;
 
     public Marca(){};
 
-    public Marca(int id, String nome) {
+    public Marca(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,7 +43,7 @@ public class Marca {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Marca marca = (Marca) o;
-        return id == marca.id;
+        return Objects.equals(id, marca.id);
     }
 
     @Override
